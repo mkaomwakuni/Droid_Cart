@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DroidCart">
         <activity
+            android:name=".ItemListFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ItemAddFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ItemDetails"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

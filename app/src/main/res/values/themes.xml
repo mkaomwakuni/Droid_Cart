@@ -12,5 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <style name="Widget.Droidcart.ListItemTextView" parent="Widget.MaterialComponents.TextView">
+            <item name="android:gravity">center_vertical</item>
+            <item name="android:layout_height">48dp</item>
+            <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        </style>
     </style>
 </resources>
