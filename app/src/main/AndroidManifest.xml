@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DroidCart">
         <activity
+            android:name=".itemListFragmentrecycler"
+            android:exported="false" />
+        <activity
             android:name=".ItemListFragment"
             android:exported="false" />
         <activity
