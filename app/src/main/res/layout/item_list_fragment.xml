@@ -5,5 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".itemListFragmentrecycler">
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:textAppearance="?attr/textAppearanceOverline"
+        android:text="@string/Item"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintEnd_toStartOf="@+id/item_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginEnd="@dimen/marginEnd"
+        android:textAlignment="center"
+        android:text="@string/Price"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintEnd_toStartOf="@+id/item_quantity"
+        app:layout_constraintStart_toEndOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/item_quantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:text="@string/Stock"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/item_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/marginEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"/>
+
+<View
+    android:id="@+id/divider"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="?android:attr/listDivider"
+    android:layout_marginTop="@dimen/marginTop"
+    app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/item_quantity"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/marginEnd"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_add"
+        android:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/Floatingbtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

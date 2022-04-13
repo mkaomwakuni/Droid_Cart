@@ -4,4 +4,6 @@
     <string name="Stock">Quantity in Stock</string>
     <string name="Price">Item Price</string>
     <string name="Name_of_item">Item Name</string>
+    <string name="btn_delete">Delete</string>
+    <string name="edit_item">Edit Item</string>
 </resources>
