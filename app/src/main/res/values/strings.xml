@@ -8,5 +8,7 @@
     <string name="btn_delete">Delete</string>
     <string name="edit_item">Edit Item</string>
     <string name="Item">Item Name</string>
+    <string name="item_details">Item Details</string>
+
     <string name="Floatingbtn">floating_Button</string>
 </resources>
