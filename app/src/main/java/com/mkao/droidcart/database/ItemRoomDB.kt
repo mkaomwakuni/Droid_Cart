@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import java.security.AccessControlContext
 
 //Database class with a singleton INSTANCE Object
-@Database(entities = [item::class],version = 1,exportSchema =false )
+@Database(entities = [Item::class],version = 1,exportSchema =false )
 
 abstract class ItemRoomDB : RoomDatabase(){
     abstract fun itemDao() :ItemDao
