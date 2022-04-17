@@ -9,7 +9,8 @@ import java.text.NumberFormat
 //Entity class represents a single row in a database
 
 @Entity
-data class Item(@PrimaryKey(autoGenerate = true)
+data class Item(
+    @PrimaryKey(autoGenerate = true)
 val id: Int = 0,
 @ColumnInfo(name = "name")
 val itemName:String,
