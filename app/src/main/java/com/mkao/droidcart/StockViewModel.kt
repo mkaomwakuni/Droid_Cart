@@ -97,11 +97,11 @@ class StockViewModel(private val itemDao: ItemDao) :ViewModel() {
 
   }
 //factory class to instantiate ViewModel
-class InventoryViewModel(private val itemDao: ItemDao): ViewModelProvider.Factory{
+class InventoryViewModelFactory (private val itemDao: ItemDao): ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(InventoryViewModel::class.java)){
+        if (modelClass.isAssignableFrom(StockViewModel::class.java)){
             @Suppress("UNCHECKED_CAST")
-            return InventoryViewModel(itemDao) as T
+            return StockViewModel(itemDao) as T
         }
         throw IllegalArgumentException ("Unknown ViewModel Class")
 
