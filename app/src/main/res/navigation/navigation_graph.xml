@@ -18,13 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/item_add_fragment"
-        android:name="com.mkao.droidcart.ItemAddFragment"
-        android:label="{title}"
+        android:name="com.mkao.droidcart.ItemAddFragment" android:label="{title}"
         tools:layout="@layout/item_add_fragment">
         <argument
             android:name="title"
             app:argType="string"/>
-    <argument
+        <argument
         android:name="item_id"
         android:defaultValue="-1"
         app:argType="integer"/>

@@ -45,6 +45,11 @@ class StockViewModel(private val itemDao: ItemDao) :ViewModel() {
             updateItem(newItem)
         }
     }
+    //insert a new item into db
+    fun addNewItem(itemName: String,itemPrice: String,itemCount: String){
+        val newItem = getNewItemEntry(itemName,itemPrice,itemCount)
+        insertItem(newItem)
+    }
 
     //Launching a  coroutine to insert an item in non blocking manner
     fun insertItem(item: Item) {
@@ -95,7 +100,7 @@ class StockViewModel(private val itemDao: ItemDao) :ViewModel() {
         )
      }
 
-  }
+}
 //factory class to instantiate ViewModel
 class InventoryViewModelFactory (private val itemDao: ItemDao): ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

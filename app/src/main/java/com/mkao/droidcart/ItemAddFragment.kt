@@ -1,14 +1,17 @@
 package com.mkao.droidcart
 
+import android.content.Context.INPUT_METHOD_SERVICE
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mkao.droidcart.database.Item
 import com.mkao.droidcart.databinding.ItemAddFragmentBinding
@@ -58,8 +61,54 @@ class ItemAddFragment : Fragment() {
             saveBtn.setOnClickListener { updateItem() }
         }
     }
-
+   //Inserts the new Item into database and navigates up to list fragment.
+    private fun addNewItem(){
+        if(isEntryValid()){
+            viewModel.addNewItem(
+                binding.itemName.text.toString(),
+                binding.itemPrice.text.toString(),
+                binding.itemQuantity.text.toString(),
+            )
+            val action = ItemAddFragmentDirections.action_item_add_fragment_to_item_listfragment()
+            findNavController().navigate(action)
+        }
+    }
+    //updates an existing item in the database
     private fun updateItem() {
-        TODO("Not yet implemented")
+        if (isEntryValid()){
+            viewModel.updateItem(
+                this.navigationArgs.item_id,
+                this.binding.itemName.text.toString(),
+                this.binding.itemPrice.text.toString(),
+                this.binding.itemQuantity.text.toString(),
+            )
+            val action =  ItemAddFragmentDirections.action_item_add_fragment_to_item_listfragment()
+            findNavController().navigate(action)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val id = navigationArgs.item_id
+        if (id>0){
+            viewModel.retrieveItem(id).observe(this.viewLifecycleOwner)
+            {
+                selectedItem -> item= selectedItem
+                bind(item)
+            }
+        }else{
+            binding.saveBtn.setOnClickListener {
+                addNewItem()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //HIDE THE KEYBOARD
+        val inputMethodManager = requireActivity().getSystemService(INPUT_METHOD_SERVICE) as
+               InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken,0)
+        _binding =null
     }
 }
