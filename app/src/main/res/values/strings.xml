@@ -11,4 +11,7 @@
     <string name="item_details">Item Details</string>
 
     <string name="Floatingbtn">floating_Button</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="delete_question">De;lete this Item ?</string>
 </resources>
