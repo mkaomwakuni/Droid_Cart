@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DroidCart">
         <activity
-            android:name=".itemListAdapter"
+            android:name=".ItemListAdapter"
             android:exported="false" />
         <activity
             android:name=".ItemListFragment"

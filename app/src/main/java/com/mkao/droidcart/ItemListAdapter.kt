@@ -6,18 +6,8 @@ import android.widget.ListAdapter
 import com.mkao.droidcart.database.Item
 
 //This adapter implements for recyclerView
-class itemListAdapter(private val onItemClicked:(Item)->Unit) :
-ListAdapter<Item,itemListAdapter.ItemViewHolder>(DiffCallback) {
+class ItemListAdapter() : ListAdapter<>(DiffCallback){
 
-
-
-    object DiffCallback {
-
-    }
-
-    class ItemViewHolder {
-
-    }
 
 }
 
